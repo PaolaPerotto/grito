@@ -1,0 +1,51 @@
+
+<html>
+<head>
+  
+</head>
+<body>
+
+<script>
+function EsGrito(text) {
+  let letras = 0;
+  let Exclamacion = 0;
+
+  for (let i = 0; i < text.length; i++) {
+    let caracter = text.charAt(i);
+
+    if ((caracter >= 'a' && caracter <= 'z') || (caracter >= 'A' && caracter <= 'Z')) {
+      letras++;
+    } else if (caracter === '!') {
+      Exclamacion++;
+    }
+  }
+
+  if (Exclamacion > letras) {
+    return 'ESGRITO';
+  } else {
+    return 'escrito';
+  }
+}
+
+function parseInput() {
+  const input = prompt('Escribe  "fin" para terminar:');
+
+  
+  const inputTrimmedUpperCase = input.trim().toUpperCase();
+
+  if (inputTrimmedUpperCase === 'FIN') {
+    return;
+  }
+
+  const result = EsGrito(input);
+  document.write(result + '<br>');
+
+  parseInput();
+}
+
+
+parseInput();
+</script>
+
+</body>
+</html>
